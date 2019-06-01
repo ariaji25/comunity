@@ -8,6 +8,25 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+  List<String> banner =[
+  "lib/assets/Banner 1.1.png",
+  "lib/assets/Banner 1.png"
+  ];
+
+  List<String> spots =[
+     "lib/assets/photo_dummy1.jpg",
+     "lib/assets/photo_dummy2.jpg",
+     "lib/assets/photo_dummy3.jpg",
+     "lib/assets/photo_dummy4.jpg",
+     "lib/assets/photo_dummy5.jpg",
+  ];
+
+  List<String> newss=[
+    "lib/assets/photo_dummy5.jpg",
+    "lib/assets/photo_dummy6.JPG",
+    "lib/assets/photo_dummy7.jpg",
+    "lib/assets/photo_dummy8.jpg",
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,9 +54,9 @@ class _HomescreenState extends State<Homescreen> {
 //                  width: 500,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 3,
+                    itemCount: banner.length,
                     itemBuilder: (context, int index){
-                      return event();
+                      return event(index);
                     },
                   ),
                 ),
@@ -65,9 +84,9 @@ class _HomescreenState extends State<Homescreen> {
 //                  width: 500,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 10,
+                    itemCount: spots.length,
                     itemBuilder: (context, int index){
-                      return spots();
+                      return spotS(index);
                     },
                   ),
                 ),
@@ -95,9 +114,9 @@ class _HomescreenState extends State<Homescreen> {
                   width: 500.0,
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
-                    itemCount: 10,
+                    itemCount: newss.length,
                     itemBuilder: (context, int index){
-                      return news();
+                      return news(index);
                     },
                   ),
                 ),
@@ -181,7 +200,7 @@ class _HomescreenState extends State<Homescreen> {
     );
   }
 
-  Widget event() {
+  Widget event(int i) {
     return Padding(
       padding: const EdgeInsets.only(right:18.0),
       child: Container(
@@ -191,32 +210,14 @@ class _HomescreenState extends State<Homescreen> {
             borderRadius: BorderRadius.circular(5.0),
             shape: BoxShape.rectangle,
             image: DecorationImage(
-                image: NetworkImage(
-                    "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_36722630_Full.jpg?crop=0,0,6549,4912&wid=580&hei=435&scl=11.291954022988506"),
+                image: AssetImage(
+                    banner[i]),
                 fit: BoxFit.cover)),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(13,25,10,10),
-          child: RichText(
-            text: TextSpan(
-                style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold),
-                text: 'Lombok Dev \n',
-                children: [
-                  TextSpan(text: 'Meet_Up #7 \n'),
-                  TextSpan(
-                      text: 'Meet Up With Lombok{Dev}',
-                      style: TextStyle(
-                          fontSize: 12.0, fontWeight: FontWeight.normal))
-                ]),
-          ),
-        ),
       ),
     );
   }
 
-  Widget spots(){
+  Widget spotS(int i){
     return Padding(
       padding: const EdgeInsets.only(right:24.0),
       child: Column(
@@ -229,8 +230,8 @@ class _HomescreenState extends State<Homescreen> {
               borderRadius: BorderRadius.circular(5.0),
               shape: BoxShape.rectangle,
               image: DecorationImage(
-                  image: NetworkImage(
-                      "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_36722630_Full.jpg?crop=0,0,6549,4912&wid=580&hei=435&scl=11.291954022988506"),
+                  image: AssetImage(
+                      spots[i]),
                   fit: BoxFit.cover)),
           ),
           Padding(
@@ -253,7 +254,7 @@ class _HomescreenState extends State<Homescreen> {
     );
   }
 
-  Widget news(){
+  Widget news(int i){
     return Column(
 //      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -265,8 +266,8 @@ class _HomescreenState extends State<Homescreen> {
                 borderRadius: BorderRadius.circular(5.0),
                 shape: BoxShape.rectangle,
                 image: DecorationImage(
-                    image: NetworkImage(
-                        "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_36722630_Full.jpg?crop=0,0,6549,4912&wid=580&hei=435&scl=11.291954022988506"),
+                    image: AssetImage(
+                        newss[i]),
                     fit: BoxFit.cover)),
           ),
           title: Text("Hackathon Flutter International 2019\nSalah Satu Tempatnya di Lombok!"),

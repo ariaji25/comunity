@@ -34,6 +34,25 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - lib/assets/Banner 1.1.png
+    - lib/assets/Banner 1.png
+    - lib/assets/photo_dummy1.jpg
+    - lib/assets/photo_dummy2.jpg
+    - lib/assets/photo_dummy3.jpg
+    - lib/assets/photo_dummy4.jpg
+    - lib/assets/photo_dummy5.jpg
+    - lib/assets/photo_dummy6.JPG
+    - lib/assets/photo_dummy7.jpg
+    - lib/assets/photo_dummy8.jpg
+    - lib/assets/profil dummy.jpg
+    - lib/assets/humaaan-1.png
+    - lib/assets/humaaan-2.png
+    - lib/assets/humaaan-8.png
+    - lib/assets/humaaan-9.png
+    - lib/assets/Human 1.png
+    - lib/assets/Human 2.png
+    - lib/assets/Human4.png
   fonts:
   - family: Roboto
     fonts:
@@ -44,6 +63,7 @@ flutter:
   - family: Roboto Medium
     fonts:
       - asset: lib/assets/Roboto/Roboto-Medium.ttf
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
