@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:komunitas/component/cardEvent.dart';
+import 'package:komunitas/screen/notifications.dart';
 
 class Homescreen extends StatefulWidget {
   @override
@@ -18,26 +18,86 @@ class _HomescreenState extends State<Homescreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.fromLTRB(24, 8, 10, 10),
+                padding: const EdgeInsets.fromLTRB(24, 8, 24, 10),
                 child: search(),
               ),
               SizedBox(
                 height: 14.0,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(24, 8, 10, 10),
+                padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),
                 child: category("Events In Mataram"),
               ),
               Padding(
                 padding: const EdgeInsets.only(left:24.0),
                 child: new SizedBox(
-                  height: 120.0,
+                  height: 113.0,
 //                  width: 500,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 3,
                     itemBuilder: (context, int index){
                       return event();
+                    },
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left:308, top:14.0,),
+                child: Text(
+                  'More Events',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 24, 10, 16),
+                child: category("Spots In Mataram"),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left:24.0),
+                child: new SizedBox(
+                  height: 130.0,
+//                  width: 500,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 10,
+                    itemBuilder: (context, int index){
+                      return spots();
+                    },
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left:308, top:14.0,),
+                child: Text(
+                  'More Spots',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 24, 10, 16),
+                child: category("Comunity News"),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left:24.0),
+                child: new SizedBox(
+                  height: 500.0,
+                  width: 500.0,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: 10,
+                    itemBuilder: (context, int index){
+                      return news();
                     },
                   ),
                 ),
@@ -78,7 +138,9 @@ class _HomescreenState extends State<Homescreen> {
               color: Colors.black,
               size: 30.0,
             ),
-            onPressed: () {}),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Notixscreens()));
+            }),
         SizedBox(
           width: 14.0,
         ),
@@ -151,6 +213,67 @@ class _HomescreenState extends State<Homescreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget spots(){
+    return Padding(
+      padding: const EdgeInsets.only(right:24.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+          width: 72.0,
+          height: 72.0,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5.0),
+              shape: BoxShape.rectangle,
+              image: DecorationImage(
+                  image: NetworkImage(
+                      "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_36722630_Full.jpg?crop=0,0,6549,4912&wid=580&hei=435&scl=11.291954022988506"),
+                  fit: BoxFit.cover)),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top:8.0),
+            child: RichText(
+              text: TextSpan(
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Roboto',
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold),
+                  text: 'Coffe Tofee \n',
+                  children: [
+                    TextSpan(text: 'Matarm\n'),
+                  ]),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget news(){
+    return Column(
+//      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        new ListTile(
+          leading: Container(
+            height: 54.0,
+            width: 54.0,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5.0),
+                shape: BoxShape.rectangle,
+                image: DecorationImage(
+                    image: NetworkImage(
+                        "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_36722630_Full.jpg?crop=0,0,6549,4912&wid=580&hei=435&scl=11.291954022988506"),
+                    fit: BoxFit.cover)),
+          ),
+          title: Text("Hackathon Flutter International 2019\nSalah Satu Tempatnya di Lombok!"),
+          subtitle: Text("Sabtu 1 Juni 2019"),
+        ),
+        Divider(height: 14.0,)
+      ],
     );
   }
 }
