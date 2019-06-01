@@ -40,6 +40,9 @@ flutter:
       - asset: lib/assets/Roboto/Roboto-Black.ttf
       - asset: lib/assets/Roboto/Roboto-Regular.ttf
       - asset: lib/assets/Roboto/Roboto-Bold.ttf
+
+  - family: Roboto Medium
+    fonts:
       - asset: lib/assets/Roboto/Roboto-Medium.ttf
 
   # The following line ensures that the Material Icons font is
